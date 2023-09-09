@@ -1,0 +1,5 @@
+package com.leo.crud.modelo;
+
+public class Estudante {
+
+}
