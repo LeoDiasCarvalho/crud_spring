@@ -349,3 +349,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-09 18:44:34.574
 !MESSAGE Classpath changed for project: crud
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-09 18:46:28.589
+!MESSAGE Classpath changed for project: crud
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-09 18:46:52.603
+!MESSAGE Classpath changed for project: crud
