@@ -1,0 +1,14 @@
+package com.leo.crud.controles;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class EstudanteControle {
+	
+	@GetMapping("/")
+	public String listarEstudantes() {
+		return "/listar-estudantes";
+	}
+
+}
