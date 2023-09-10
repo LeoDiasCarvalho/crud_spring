@@ -30,7 +30,6 @@ public class Estudante {
 	@Column(name = "nome")
 	private String nome;
 	
-	@NotBlank(message = "A idade não pode ser vazia!")
 	@Min(value = 18, message = "O estudante deve ter no mínimo 18 anos!")
 	@Column(name = "idade")
 	private int idade;
