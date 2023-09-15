@@ -1,5 +1,7 @@
 package com.leo.crud.controles;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +23,9 @@ public class EstudanteControle {
 	private EstudanteServico estudanteServico;
 	
 	@GetMapping("/")
-	public String listarEstudantes() {
+	public String listarEstudantes(Model model) {
+		List<Estudante> estudantes = estudanteServico.buscarTodosEstudante();
+		model.addAttribute("listaEstudantes", estudantes);
 		return "/listar-estudantes";
 	}
 	

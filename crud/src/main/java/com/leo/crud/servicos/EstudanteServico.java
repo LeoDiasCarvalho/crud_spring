@@ -1,5 +1,7 @@
 package com.leo.crud.servicos;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class EstudanteServico {
 	
 	public Estudante salvarEstudante(Estudante estudante) {
 		return repo.save(estudante);
+	}
+	
+	public List<Estudante> buscarTodosEstudante() {
+		return repo.findAll();
 	}
 	
 	
