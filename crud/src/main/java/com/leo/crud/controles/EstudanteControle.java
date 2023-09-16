@@ -8,9 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.leo.crud.excecoes.EstudanteNotFoundException;
 import com.leo.crud.modelo.Estudante;
 import com.leo.crud.servicos.EstudanteServico;
 
@@ -45,6 +47,16 @@ public class EstudanteControle {
 		estudanteServico.salvarEstudante(estudante);
 		attributes.addFlashAttribute("mensagem", "Estudante salvo com sucesso!");
 		return "redirect:/novo";
+	}
+	
+	@GetMapping("/apagar/{id}")
+	public String apagarEstudante(@PathVariable("id") Long id, RedirectAttributes attributes) {
+		try {
+			estudanteServico.apagarEstudante(id);
+		} catch (EstudanteNotFoundException e) {
+			attributes.addFlashAttribute("mensagemErro", e.getMessage());
+		}
+		return "redirect:/";
 	}
 
 }

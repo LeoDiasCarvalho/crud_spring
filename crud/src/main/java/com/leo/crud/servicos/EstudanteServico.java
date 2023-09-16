@@ -1,10 +1,12 @@
 package com.leo.crud.servicos;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.leo.crud.excecoes.EstudanteNotFoundException;
 import com.leo.crud.modelo.Estudante;
 import com.leo.crud.repositorios.EstudanteRepositorio;
 
@@ -22,6 +24,18 @@ public class EstudanteServico {
 		return repo.findAll();
 	}
 	
+	public Estudante buscarEstudantePorId(Long id) throws EstudanteNotFoundException {
+		Optional<Estudante> opt =  repo.findById(id);
+		if(opt.isPresent()) {
+			return opt.get();
+		}else {
+			throw new EstudanteNotFoundException("Estudante com id: " + id + " não existe!");
+		}
+	}
 	
+	public void apagarEstudante(Long id) throws EstudanteNotFoundException {
+		Estudante estudante = buscarEstudantePorId(id);
+		repo.delete(estudante);
+	}
 
 }

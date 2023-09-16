@@ -1,0 +1,8 @@
+package com.leo.crud.excecoes;
+
+public class EstudanteNotFoundException  extends NullPointerException{
+
+	private static final long serialVersionUID = 1L;
+
+
+}
