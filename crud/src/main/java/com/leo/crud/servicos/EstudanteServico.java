@@ -37,5 +37,9 @@ public class EstudanteServico {
 		Estudante estudante = buscarEstudantePorId(id);
 		repo.delete(estudante);
 	}
+	
+	public Estudante editarEstudante(Estudante estudante) {
+		return repo.save(estudante);
+	}
 
 }
