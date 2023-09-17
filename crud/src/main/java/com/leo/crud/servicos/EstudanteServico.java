@@ -33,6 +33,10 @@ public class EstudanteServico {
 		}
 	}
 	
+	public List<Estudante> buscarTodosEstudantesPorNome(String nome){
+		return repo.findByNomeContainingIgnoreCase(nome);
+	}
+	
 	public void apagarEstudante(Long id) throws EstudanteNotFoundException {
 		Estudante estudante = buscarEstudantePorId(id);
 		repo.delete(estudante);

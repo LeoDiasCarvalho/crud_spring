@@ -3,6 +3,7 @@ package com.leo.crud.controles;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,16 @@ public class EstudanteControle {
 	@GetMapping("/")
 	public String listarEstudantes(Model model) {
 		List<Estudante> estudantes = estudanteServico.buscarTodosEstudante();
+		model.addAttribute("listaEstudantes", estudantes);
+		return "/listar-estudantes";
+	}
+	
+	@PostMapping("/buscar")
+	public String buscarEstudantePorNome(@Param("nome") String nome, Model model) {
+		if(nome == null) {
+			return "redirect:/";
+		}
+		List<Estudante> estudantes = estudanteServico.buscarTodosEstudantesPorNome(nome);
 		model.addAttribute("listaEstudantes", estudantes);
 		return "/listar-estudantes";
 	}

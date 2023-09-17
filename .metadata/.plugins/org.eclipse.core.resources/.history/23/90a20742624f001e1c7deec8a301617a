@@ -1,9 +1,0 @@
-package com.leo.crud.controles;
-
-import org.springframework.stereotype.Controller;
-
-@Controller
-
-public class EstudanteControle {
-
-}
